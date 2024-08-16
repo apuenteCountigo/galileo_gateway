@@ -6,6 +6,7 @@ import org.springframework.security.authentication.ReactiveAuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
@@ -19,6 +20,7 @@ public class JwtAuthenticationFilter implements WebFilter{
 	private ReactiveAuthenticationManager authenticationManager;
 	
 	@Override
+	//@CrossOrigin(origins = "*")
 	public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
 		return Mono.justOrEmpty(exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION))
 				.filter(authHeader -> authHeader.startsWith("Bearer "))
