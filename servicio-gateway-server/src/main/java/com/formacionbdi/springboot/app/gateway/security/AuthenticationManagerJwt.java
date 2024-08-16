@@ -14,7 +14,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -27,7 +26,6 @@ public class AuthenticationManagerJwt implements ReactiveAuthenticationManager{
 	private String llaveJwt;
 	
 	@Override
-	//@CrossOrigin(origins = "*")
 	@SuppressWarnings("unchecked")
 	public Mono<Authentication> authenticate(Authentication authentication) {
 		return Mono.just(authentication.getCredentials().toString())

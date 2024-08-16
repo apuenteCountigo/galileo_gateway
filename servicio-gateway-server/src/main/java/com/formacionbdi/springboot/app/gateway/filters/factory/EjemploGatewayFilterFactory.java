@@ -11,7 +11,6 @@ import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.ResponseCookie;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import reactor.core.publisher.Mono;
 
@@ -26,10 +25,9 @@ public class EjemploGatewayFilterFactory extends AbstractGatewayFilterFactory<Ej
 	}
 
 	@Override
-	@CrossOrigin
 	public GatewayFilter apply(Configuracion config) {
 		return (exchange, chain) -> {
-			System.out.println("*-*--*-*-*-*-* Config: "+config.getMensaje());;
+	
 			logger.info("ejecutando pre gateway filter factory: " + config.mensaje);
 			return chain.filter(exchange).then(Mono.fromRunnable(() -> {
 				
