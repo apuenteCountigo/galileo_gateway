@@ -40,7 +40,6 @@ public class SpringSecurityConfig {
 						"/api/permisos/listar/search/**",
 						"/api/operaciones/operaciones/search/**",
 						"/api/evidencias/**",
-						"/api/modelosbalizas/**",
 						"/api/objetivos/listar/search/**",
 						"/api/geocercas/**")
 				.hasAnyAuthority("Administrador de Unidad", "Usuario Final", "Invitado Externo", "Super Administrador")
@@ -88,10 +87,6 @@ public class SpringSecurityConfig {
 						"/api/histobjbal/**")
 				.hasAnyAuthority("Super Administrador", "Administrador de Unidad")
 
-				.pathMatchers(HttpMethod.POST,
-						"/api/modelosbalizas/**")
-				.hasAnyAuthority("Super Administrador")
-
 				.pathMatchers(HttpMethod.PUT,
 						"/api/usuarios/usuarios/**",
 						"/api/unidades/unidades/**",
@@ -117,18 +112,9 @@ public class SpringSecurityConfig {
 						"/api/apis/**",
 						"/api/geocercas/**")
 				.hasAnyAuthority("Super Administrador", "Administrador de Unidad", "Usuario Final", "Invitado Externo")
-
-				.pathMatchers(HttpMethod.PUT,
-						"/api/modelosbalizas/**")
-				.hasAnyAuthority("Super Administrador")
-
 				.pathMatchers(HttpMethod.DELETE,
 						"/api/geocercas/**")
 				.hasAnyAuthority("Super Administrador", "Administrador de Unidad", "Usuario Final", "Invitado Externo")
-
-				.pathMatchers(HttpMethod.DELETE,
-						"/api/modelosbalizas/**")
-				.hasAnyAuthority("Super Administrador")
 
 				.pathMatchers(HttpMethod.POST,
 						"/api/evidencias/**",
@@ -153,16 +139,11 @@ public class SpringSecurityConfig {
 						"/api/trazabilidad/**",
 						"/api/histobjbal/**")
 				.hasAnyAuthority("Super Administrador", "Administrador de Unidad")
-
 				.pathMatchers(HttpMethod.PATCH,
 						"/api/balizas/**",
 						"/api/apis/**",
 						"/api/usuarios/usuarios/**")
 				.hasAnyAuthority("Super Administrador", "Administrador de Unidad", "Usuario Final", "Invitado Externo")
-
-				.pathMatchers(HttpMethod.PATCH,
-						"/api/modelosbalizas/**")
-				.hasAnyAuthority("Super Administrador")
 
 				.pathMatchers(HttpMethod.DELETE,
 						"/api/usuarios/usuarios/**",
