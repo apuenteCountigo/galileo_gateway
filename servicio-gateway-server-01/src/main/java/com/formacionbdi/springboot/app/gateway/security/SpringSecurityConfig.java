@@ -26,9 +26,7 @@ public class SpringSecurityConfig {
 			cc.addAllowedMethod(HttpMethod.PUT);
 			return cc;
 		}).and().csrf().disable().authorizeExchange()
-				.pathMatchers("/api/security/oauth/**", "/api/usuarios/usuarios/search/buscarTip",
-						"/api/modelosbalizas")
-				.permitAll()
+				.pathMatchers("/api/security/oauth/**", "/api/usuarios/usuarios/search/buscarTip").permitAll()
 				.pathMatchers(HttpMethod.OPTIONS).permitAll()
 				.pathMatchers(HttpMethod.GET,
 						"/api/usuarios/usuarios/search/**",
@@ -58,6 +56,8 @@ public class SpringSecurityConfig {
 				.hasAuthority("Super Administrador")
 				.pathMatchers(HttpMethod.GET,
 						"/api/empleos/**",
+						"/api/modelosbalizas/**",
+						"/api/juzgados/**",
 						"/api/estados/**",
 						"/api/perfiles/**",
 						"/api/importador/**",
@@ -75,6 +75,7 @@ public class SpringSecurityConfig {
 						"/api/unidades-usuarios/**",
 						"/api/balizas/**",
 						"/api/empleos/**",
+						"/api/juzgados/**",
 						"/api/estados/**",
 						"/api/perfiles/**",
 						"/api/importador/**",
@@ -95,6 +96,7 @@ public class SpringSecurityConfig {
 						"/api/unidades-usuarios/**",
 						"/api/balizas/**",
 						"/api/empleos/**",
+						"/api/juzgados/**",
 						"/api/estados/**",
 						"/api/perfiles/**",
 						"/api/importador/**",
@@ -128,6 +130,7 @@ public class SpringSecurityConfig {
 						"/api/unidades/unidades/**",
 						"/api/unidades-usuarios/**",
 						"/api/empleos/**",
+						"/api/juzgados/**",
 						"/api/estados/**",
 						"/api/perfiles/**",
 						"/api/importador/**",
@@ -153,6 +156,7 @@ public class SpringSecurityConfig {
 						"/api/unidades-usuarios/**",
 						"/api/balizas/**",
 						"/api/empleos/**",
+						"/api/juzgados/**",
 						"/api/estados/**",
 						"/api/perfiles/**",
 						"/api/importador/**",
@@ -168,6 +172,16 @@ public class SpringSecurityConfig {
 						"/api/trazabilidad/**",
 						"/api/histobjbal/**")
 				.hasAnyAuthority("Super Administrador", "Administrador de Unidad")
+
+				.pathMatchers(HttpMethod.POST, "/api/modelosbalizas/**")
+				.hasAnyAuthority("Super Administrador")
+				.pathMatchers(HttpMethod.PUT, "/api/modelosbalizas/**")
+				.hasAnyAuthority("Super Administrador")
+				.pathMatchers(HttpMethod.PATCH, "/api/modelosbalizas/**")
+				.hasAnyAuthority("Super Administrador")
+				.pathMatchers(HttpMethod.DELETE, "/api/modelosbalizas/**")
+				.hasAnyAuthority("Super Administrador")
+
 				.anyExchange()
 				.authenticated().and().addFilterAt(authenticationFilter, SecurityWebFiltersOrder.AUTHENTICATION)
 				.build();
