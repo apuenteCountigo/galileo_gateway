@@ -28,78 +28,62 @@ public class SpringSecurityConfig {
 		}).and().csrf().disable().authorizeExchange()
 				.pathMatchers("/api/security/oauth/**", "/api/usuarios/usuarios/search/buscarTip").permitAll()
 				.pathMatchers(HttpMethod.OPTIONS).permitAll()
-				.pathMatchers(HttpMethod.GET, 
+				.pathMatchers(HttpMethod.GET,
 						"/api/usuarios/usuarios/search/**",
-						"/api/trazabilidad/listar/search/**", 
+						"/api/trazabilidad/listar/search/**",
 						"/api/histobjbal/listar/search/**")
 				.hasAnyAuthority("Administrador de Unidad", "Super Administrador")
-				.pathMatchers(HttpMethod.GET, 
+				.pathMatchers(HttpMethod.GET,
 						"/api/unidades/unidades/search/**",
-						"/api/unidades-usuarios/listar/search/**", 
-						"/api/balizas/balizas/search/**", 
-						"/api/permisos/listar/search/**", 
-						"/api/operaciones/operaciones/search/**",						
+						"/api/unidades-usuarios/listar/search/**",
+						"/api/balizas/balizas/search/**",
+						"/api/permisos/listar/search/**",
+						"/api/operaciones/operaciones/search/**",
 						"/api/evidencias/**",
 						"/api/objetivos/listar/search/**",
 						"/api/geocercas/**")
-				.hasAnyAuthority("Administrador de Unidad","Usuario Final", "Invitado Externo", "Super Administrador")
-				.pathMatchers(HttpMethod.GET, 
-						"/api/usuarios/**", 
+				.hasAnyAuthority("Administrador de Unidad", "Usuario Final", "Invitado Externo", "Super Administrador")
+				.pathMatchers(HttpMethod.GET,
+						"/api/usuarios/**",
 						"/api/unidades/**",
-						"/api/unidades-usuarios/**", 
-						"/api/balizas/**", 
-						"/api/permisos/**", 
+						"/api/unidades-usuarios/**",
+						"/api/balizas/**",
+						"/api/permisos/**",
 						"/api/operaciones/**",
 						"/api/objetivos/**",
 						"/api/tiposcontratos/**",
 						"/api/histobjbal/**")
 				.hasAuthority("Super Administrador")
-				.pathMatchers(HttpMethod.GET, 
-						"/api/empleos/**", 
+				.pathMatchers(HttpMethod.GET,
+						"/api/empleos/**",
+						"/api/juzgados/**",
+						"/api/modelosbalizas/**",
 						"/api/estados/**",
-						"/api/perfiles/**", 
-						"/api/importador/**", 
-						"/api/provincias/**", 
+						"/api/perfiles/**",
+						"/api/importador/**",
+						"/api/provincias/**",
 						"/api/conexiones/**",
-						"/api/apis/**", 
+						"/api/apis/**",
 						"/api/tiposcontratos/**",
 						"/api/tipobalizas/**")
 				.permitAll()
-        
-				/*POST*/
-				.pathMatchers(HttpMethod.POST, 
-						"/api/usuarios/usuarios/**", 
+
+				/* POST */
+				.pathMatchers(HttpMethod.POST,
+						"/api/usuarios/usuarios/**",
 						"/api/unidades/unidades/**",
-						"/api/unidades-usuarios/**", 
-						"/api/balizas/**", 
-						"/api/empleos/**", 
+						"/api/unidades-usuarios/**",
+						"/api/balizas/**",
+						"/api/empleos/**",
+						"/api/juzgados/**",
+						"/api/modelosbalizas/**",
 						"/api/estados/**",
-						"/api/perfiles/**", 
-						"/api/importador/**", 
-						"/api/provincias/**", 
+						"/api/perfiles/**",
+						"/api/importador/**",
+						"/api/provincias/**",
 						"/api/conexiones/**",
-						"/api/tipobalizas/**", 
-						"/api/permisos/**", 
-						"/api/operaciones/operaciones/**",
-						"/api/objetivos/**",
-						"/api/tiposcontratos/**",
-						"/api/trazabilidad/**",
-						"/api/histobjbal/**")
-				.hasAnyAuthority("Super Administrador", "Administrador de Unidad")
-        
-				.pathMatchers(HttpMethod.PUT, 
-						"/api/usuarios/usuarios/**", 
-						"/api/unidades/unidades/**",
-						"/api/unidades-usuarios/**", 
-						"/api/balizas/**", 
-						"/api/empleos/**", 
-						"/api/estados/**",
-						"/api/perfiles/**", 
-						"/api/importador/**", 
-						"/api/provincias/**", 
-						"/api/conexiones/**",
-						"/api/tipobalizas/**", 
-						"/api/permisos/**", 
+						"/api/tipobalizas/**",
+						"/api/permisos/**",
 						"/api/operaciones/operaciones/**",
 						"/api/objetivos/**",
 						"/api/tiposcontratos/**",
@@ -107,7 +91,29 @@ public class SpringSecurityConfig {
 						"/api/histobjbal/**")
 				.hasAnyAuthority("Super Administrador", "Administrador de Unidad")
 
-				.pathMatchers(HttpMethod.PUT, 
+				.pathMatchers(HttpMethod.PUT,
+						"/api/usuarios/usuarios/**",
+						"/api/unidades/unidades/**",
+						"/api/unidades-usuarios/**",
+						"/api/balizas/**",
+						"/api/empleos/**",
+						"/api/juzgados/**",
+						"/api/modelosbalizas/**",
+						"/api/estados/**",
+						"/api/perfiles/**",
+						"/api/importador/**",
+						"/api/provincias/**",
+						"/api/conexiones/**",
+						"/api/tipobalizas/**",
+						"/api/permisos/**",
+						"/api/operaciones/operaciones/**",
+						"/api/objetivos/**",
+						"/api/tiposcontratos/**",
+						"/api/trazabilidad/**",
+						"/api/histobjbal/**")
+				.hasAnyAuthority("Super Administrador", "Administrador de Unidad")
+
+				.pathMatchers(HttpMethod.PUT,
 						"/api/evidencias/**",
 						"/api/apis/**",
 						"/api/geocercas/**")
@@ -116,56 +122,60 @@ public class SpringSecurityConfig {
 						"/api/geocercas/**")
 				.hasAnyAuthority("Super Administrador", "Administrador de Unidad", "Usuario Final", "Invitado Externo")
 
-				.pathMatchers(HttpMethod.POST, 
+				.pathMatchers(HttpMethod.POST,
 						"/api/evidencias/**",
 						"/api/apis/**",
 						"/api/geocercas/**")
 				.hasAnyAuthority("Super Administrador", "Administrador de Unidad", "Usuario Final", "Invitado Externo")
 
-				.pathMatchers(HttpMethod.PATCH, 
+				.pathMatchers(HttpMethod.PATCH,
 						"/api/unidades/unidades/**",
-						"/api/unidades-usuarios/**", 
-						"/api/empleos/**", 
+						"/api/unidades-usuarios/**",
+						"/api/empleos/**",
+						"/api/juzgados/**",
+						"/api/modelosbalizas/**",
 						"/api/estados/**",
-						"/api/perfiles/**", 
-						"/api/importador/**", 
-						"/api/provincias/**", 
+						"/api/perfiles/**",
+						"/api/importador/**",
+						"/api/provincias/**",
 						"/api/conexiones/**",
-						"/api/tipobalizas/**", 
-						"/api/permisos/**", 
+						"/api/tipobalizas/**",
+						"/api/permisos/**",
 						"/api/operaciones/operaciones/**",
 						"/api/objetivos/**",
 						"/api/tiposcontratos/**",
 						"/api/trazabilidad/**",
 						"/api/histobjbal/**")
-				.hasAnyAuthority("Super Administrador", "Administrador de Unidad")        
-				.pathMatchers(HttpMethod.PATCH, 
-				"/api/balizas/**",
-				"/api/apis/**", 
-				"/api/usuarios/usuarios/**")
+				.hasAnyAuthority("Super Administrador", "Administrador de Unidad")
+				.pathMatchers(HttpMethod.PATCH,
+						"/api/balizas/**",
+						"/api/apis/**",
+						"/api/usuarios/usuarios/**")
 				.hasAnyAuthority("Super Administrador", "Administrador de Unidad", "Usuario Final", "Invitado Externo")
-        
-				.pathMatchers(HttpMethod.DELETE, 
-						"/api/usuarios/usuarios/**", 
+
+				.pathMatchers(HttpMethod.DELETE,
+						"/api/usuarios/usuarios/**",
 						"/api/unidades/unidades/**",
-						"/api/unidades-usuarios/**", 
-						"/api/balizas/**", 
-						"/api/empleos/**", 
+						"/api/unidades-usuarios/**",
+						"/api/balizas/**",
+						"/api/empleos/**",
+						"/api/juzgados/**",
+						"/api/modelosbalizas/**",
 						"/api/estados/**",
-						"/api/perfiles/**", 
-						"/api/importador/**", 
-						"/api/provincias/**", 
+						"/api/perfiles/**",
+						"/api/importador/**",
+						"/api/provincias/**",
 						"/api/conexiones/**",
-						"/api/apis/**", 
-						"/api/tipobalizas/**", 
-						"/api/permisos/**", 
+						"/api/apis/**",
+						"/api/tipobalizas/**",
+						"/api/permisos/**",
 						"/api/operaciones/operaciones/**",
 						"/api/objetivos/**",
 						"/api/tiposcontratos/**",
 						"/api/trazabilidad/**",
 						"/api/trazabilidad/**",
 						"/api/histobjbal/**")
-				.hasAnyAuthority("Super Administrador", "Administrador de Unidad") 
+				.hasAnyAuthority("Super Administrador", "Administrador de Unidad")
 				.anyExchange()
 				.authenticated().and().addFilterAt(authenticationFilter, SecurityWebFiltersOrder.AUTHENTICATION)
 				.build();

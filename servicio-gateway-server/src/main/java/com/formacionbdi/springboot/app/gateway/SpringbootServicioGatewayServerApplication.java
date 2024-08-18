@@ -22,6 +22,6 @@ public class SpringbootServicioGatewayServerApplication implements CommandLineRu
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("GATEWAY V-2408180833");
+		System.out.println("GATEWAY V-2408180911");
 	}
 }
