@@ -11,7 +11,7 @@ import org.springframework.web.reactive.config.CorsRegistry;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
 
 @EnableEurekaClient
-@EntityScan({"com.galileo.cu.commons.models"})
+@EntityScan({ "com.galileo.cu.commons.models" })
 @CrossOrigin(origins = "*")
 @SpringBootApplication
 public class SpringbootServicioGatewayServerApplication implements CommandLineRunner {
@@ -19,9 +19,9 @@ public class SpringbootServicioGatewayServerApplication implements CommandLineRu
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootServicioGatewayServerApplication.class, args);
 	}
-	
+
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("GATEWAY V-0531-1350 CrossOrigin fallo");		
+		System.out.println("GATEWAY V-2408180833");
 	}
 }
